@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://com.hurfo.wcfbattle" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.hurfo.wcfbattle" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.hurfo.wcfbattle/Imports">
+      <xsd:import schemaLocation="http://localhost:1337/Battleships?xsd=xsd0" namespace="http://com.hurfo.wcfbattle" />
+      <xsd:import schemaLocation="http://localhost:1337/Battleships?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1337/Battleships?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1337/Battleships?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBattleships_Attack_InputMessage">
+    <wsdl:part name="parameters" element="tns:Attack" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_Attack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AttackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_CurrentTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentTurn" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_CurrentTurn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentTurnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_CreateGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGrid" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_CreateGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_AddPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_AddPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_GameState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GameState" />
+  </wsdl:message>
+  <wsdl:message name="IBattleships_GameState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GameStateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBattleships">
+    <wsdl:operation name="Attack">
+      <wsdl:input wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/Attack" message="tns:IBattleships_Attack_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/AttackResponse" message="tns:IBattleships_Attack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentTurn">
+      <wsdl:input wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/CurrentTurn" message="tns:IBattleships_CurrentTurn_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/CurrentTurnResponse" message="tns:IBattleships_CurrentTurn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGrid">
+      <wsdl:input wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/CreateGrid" message="tns:IBattleships_CreateGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/CreateGridResponse" message="tns:IBattleships_CreateGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlayer">
+      <wsdl:input wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/AddPlayer" message="tns:IBattleships_AddPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/AddPlayerResponse" message="tns:IBattleships_AddPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GameState">
+      <wsdl:input wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/GameState" message="tns:IBattleships_GameState_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.hurfo.wcfbattle/IBattleships/GameStateResponse" message="tns:IBattleships_GameState_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
